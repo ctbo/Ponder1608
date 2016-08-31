@@ -1,3 +1,8 @@
+-- Solver for Ponder This August 2016
+-- http://researchweb.watson.ibm.com/haifa/ponderthis/challenges/August2016.html
+-- (C) 2016 by Harald Bögeholz
+-- See LICENSE file for license information
+
 import Data.IntSet (IntSet)
 import qualified Data.IntSet as S
 import Data.List
