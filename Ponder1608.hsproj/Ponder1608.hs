@@ -3,27 +3,30 @@
 -- (C) 2016 by Harald Bögeholz
 -- See LICENSE file for license information
 
-import Data.IntSet (IntSet)
-import qualified Data.IntSet as S
 import Data.List
 import Control.Monad
 import System.Environment
+import Data.Bits
 
-type State = ([Int],IntSet)
+type State3 = ([Int],(Integer,Integer,Integer))
 
-initialState :: State
-initialState = ([], S.empty)
+initialState = ([],(0,0,0))
 
-pick0to2 :: [a] -> [[a]]
-pick0to2 = filter (\xs -> length xs <= 2) . subsequences
-
-addNumber :: Int -> State -> [State]
-addNumber n (xs, forbidden) = concatMap f [start, start-1 .. 1]
+addNumber :: Int -> State3 -> [State3]
+addNumber n (xs, (forbidden1, forbidden2, forbidden3)) = concatMap f [start, start-1 .. 1]
   where start = if null xs then n else head xs - 1
-        f x = if any (`S.member` forbidden) newSums
+        f x = if forbidden .&. newSums > 0
                 then []
-                else [(x:xs, S.union forbidden (S.fromList newSums))]
-          where newSums = map (sum . (x:)) $ pick0to2 xs
+                else [( x:xs, ( newSums1 .|. forbidden1
+                              , newSums2 .|. forbidden2
+                              , newSums3 .|. forbidden3
+                              )
+                       )]
+          where newSums1 = bit x
+                newSums2 = shiftL forbidden1 x
+                newSums3 = shiftL forbidden2 x
+                newSums = newSums1 .|. newSums2 .|. newSums3
+                forbidden = forbidden1 .|. forbidden2 .|. forbidden3
  
 solutions n = (iterate (>>= addNumber n) [initialState]) !! 10
 

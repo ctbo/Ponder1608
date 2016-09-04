@@ -10,5 +10,4 @@ Executable Ponder1608
   main-is: Ponder1608.hs
   buildable: True
   build-depends:
-      base -any,
-      containers -any
+      base -any
