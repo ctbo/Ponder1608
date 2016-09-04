@@ -14,6 +14,16 @@ Haralds-iMac:Ponder1608.hsproj hwb$ ./Ponder1608 200 +RTS -t
 
 ----------------------------------------------------------------------
 
+version: 5aa9920ec7bbc48359c8a3f8eb2e717fa0917e77
+
 Haralds-iMac:Ponder1608.hsproj hwb$ ./Ponder1608 200 +RTS -t
 [28,48,68,106,187,193,196,198,199,200]
 <<ghc: 1523341448 bytes, 2968 GCs, 64092/66432 avg/max bytes residency (13 samples), 2M in use, 0.000 INIT (0.000 elapsed), 0.415 MUT (0.419 elapsed), 0.016 GC (0.017 elapsed) :ghc>>
+
+----------------------------------------------------------------------
+
+
+
+Haralds-iMac:Ponder1608.hsproj hwb$ ./Ponder1608 200 +RTS -t
+[28,48,68,106,187,193,196,198,199,200]
+<<ghc: 1516047784 bytes, 2947 GCs, 55028/65664 avg/max bytes residency (2 samples), 1M in use, 0.000 INIT (0.000 elapsed), 0.408 MUT (0.413 elapsed), 0.009 GC (0.011 elapsed) :ghc>>
