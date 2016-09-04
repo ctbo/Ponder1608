@@ -22,7 +22,7 @@ Haralds-iMac:Ponder1608.hsproj hwb$ ./Ponder1608 200 +RTS -t
 
 ----------------------------------------------------------------------
 
-
+version: 00ff85c9b644e63a6ae3281c600b0557015e0226
 
 Haralds-iMac:Ponder1608.hsproj hwb$ ./Ponder1608 200 +RTS -t
 [28,48,68,106,187,193,196,198,199,200]
